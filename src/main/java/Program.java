@@ -1,11 +1,16 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+
+import java.io.File;
+
 
 public class Program {
 
     private static final Logger LOGGER = Logger.getLogger(Program.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
 
         PropertyConfigurator.configure("log4j.properties");
 
@@ -28,5 +33,9 @@ public class Program {
         Vector vector2 = Vector.DiffVector(vector,vector1);
         LOGGER.info(vector2);
         LOGGER.info(vector4.lengthVector());
+
+        objectMapper.writeValue(new File("vector.json"), vector2);
+        Vector vectorFromJSON = objectMapper.readValue(new File("vector.json"),Vector.class);
+        LOGGER.info(vectorFromJSON);
     }
 }

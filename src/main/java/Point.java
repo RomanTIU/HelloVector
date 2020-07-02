@@ -1,11 +1,15 @@
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Getter
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class Point {
-   private final int coordonateX;
-   private final int coordonateY;
+   private  int coordonateX;
+   private  int coordonateY;
+
+
 }
