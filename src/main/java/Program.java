@@ -15,10 +15,10 @@ public class Program {
         PropertyConfigurator.configure("log4j.properties");
         //Vector vector
         Point point1 = new Point(1,1);
-        Point point2 = new Point(2,2);
+        Point point2 = new Point(1,4);
         //Vector vector1
-        Point point3 = new Point(4,3);
-        Point point4 = new Point(5,5);
+        Point point3 = new Point(2,6);
+        Point point4 = new Point(7,7);
         //Vector vector4
         Point point = new Point(2, 2);
         Point point5 = new Point(5, 6);
