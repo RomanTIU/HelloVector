@@ -21,8 +21,8 @@ public class Program {
         Point point3 = new Point(1,0);
         Point point4 = new Point(3,3);
         //Vector vector4
-        Point point = new Point(0, 0);
-        Point point5 = new Point(3, 4);
+        Point point = new Point(-4, -6);
+        Point point5 = new Point(-8, 7);
 
 
         Vector vector = new Vector(point1,point2);
@@ -31,13 +31,15 @@ public class Program {
 
         //Vector result of sum 2 vectors
         Vector vector3 = Vector.SumVector(vector,vector1);
-        LOGGER.info("Length vector is : "+ new DecimalFormat("#.#").format(vector3.lengthVector())+ " U");
+        LOGGER.info("Length vector is : "+ new DecimalFormat("#.#").format(vector3.lengthVector()));
+
         //Degree of two vectors
         Double degrees = Vector.DegreesTwoVectors(vector1,vector);
-        LOGGER.info("Degrees : "+ new DecimalFormat("#.##").format(degrees));
+        LOGGER.info("Degrees two vectors : "+ new DecimalFormat("#.##").format(degrees));
 
-        Vector oXVector = new Vector(new Point(0,0),new Point(9,9));
-        LOGGER.info("Degrees : "+ new DecimalFormat("#.##").format(oXVector.OneVectorDegrees()));
+        //Vector to OX degrees
+        Vector oXVector = new Vector(new Point(0,0),new Point(-3,-6));
+        LOGGER.info("Degrees one vector : "+ new DecimalFormat("#.##").format(oXVector.OneVectorDegrees()));
 
 
 
