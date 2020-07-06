@@ -18,8 +18,7 @@ public class Vector {
 
     public static Vector SumVector(Vector prim, Vector second) throws Exception {
         if ((prim.startPoint.getCoordonateX() == prim.endPoint.getCoordonateX() &
-
-                prim.startPoint.getCoordonateY() == prim.endPoint.getCoordonateY() )||
+                prim.startPoint.getCoordonateY() == prim.endPoint.getCoordonateY() ) ||
 
                 (second.startPoint.getCoordonateX() == second.endPoint.getCoordonateX() &
                 second.startPoint.getCoordonateY() == second.endPoint.getCoordonateY())){
@@ -35,8 +34,7 @@ public class Vector {
 
     public static Vector DiffVector(Vector prim, Vector second) throws Exception {
         if ((prim.startPoint.getCoordonateX() == prim.endPoint.getCoordonateX() &
-
-                prim.startPoint.getCoordonateY() == prim.endPoint.getCoordonateY() )||
+                prim.startPoint.getCoordonateY() == prim.endPoint.getCoordonateY() ) ||
 
                 (second.startPoint.getCoordonateX() == second.endPoint.getCoordonateX() &
                         second.startPoint.getCoordonateY() == second.endPoint.getCoordonateY())){
@@ -50,4 +48,20 @@ public class Vector {
 
         return new Vector(firstPoint,secondPoint);
     }
+
+    public Point returnProiection(){
+        return new Point(this.endPoint.getCoordonateX()-this.startPoint.getCoordonateX() , this.endPoint.getCoordonateY()-this.startPoint.getCoordonateY());
+    }
+
+    public static double DegreesTwoVectors(Vector prim, Vector second){
+        Point proiectionPrim = prim.returnProiection();
+        Point proiectionSecond = second.returnProiection();
+        return Math.toDegrees (Math.acos ( ((proiectionPrim.getCoordonateX()*proiectionSecond.getCoordonateX())+(proiectionPrim.getCoordonateY()*proiectionSecond.getCoordonateY())) / (prim.lengthVector()*second.lengthVector()) ) ) ;
+    }
+
+    public double OneVectorDegrees(){
+        Vector translationVectorOX = new Vector(this.startPoint,new Point(this.endPoint.getCoordonateX(),0));
+        return Math.toDegrees(Math.acos ( (translationVectorOX.lengthVector()) / this.lengthVector()   ) );
+    }
+
 }
