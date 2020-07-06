@@ -1,9 +1,18 @@
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.PrettyPrinter;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Program {
@@ -50,9 +59,16 @@ public class Program {
 
         LOGGER.info("Length vector is : "+ new DecimalFormat("#.#").format(vector4.lengthVector()));
 
+        ObjectWriter writer = objectMapper.writer(new DefaultPrettyPrinter());
+        Vector [] vectorMasiv = new Vector[]{vector,vector1,vector2,vector3,vector4};
+        writer.writeValue(Paths.get("vector.json").toFile(),vectorMasiv);
+        Vector[] vectorFromJSON = objectMapper.readValue(new File("vector.json"),Vector[].class);
 
-        objectMapper.writeValue(new File("vector.json"), vector2);
-        Vector vectorFromJSON = objectMapper.readValue(new File("vector.json"),Vector.class);
-        LOGGER.info("From JSON"+vectorFromJSON);
+        for (Vector value :
+                vectorFromJSON) {
+            LOGGER.info("From JSON "+value);
+
+        }
+
     }
 }
