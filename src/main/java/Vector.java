@@ -16,7 +16,7 @@ public class Vector {
 
     }
 
-    public static Vector SumVector(Vector prim, Vector second) throws Exception {
+    public static Vector sumVector(Vector prim, Vector second) throws Exception {
         if ((prim.startPoint.getCoordonateX() == prim.endPoint.getCoordonateX() &
                 prim.startPoint.getCoordonateY() == prim.endPoint.getCoordonateY()) ||
 
@@ -32,7 +32,7 @@ public class Vector {
         return new Vector(firstPoint, secondPoint);
     }
 
-    public static Vector DiffVector(Vector prim, Vector second) throws Exception {
+    public static Vector diffVector(Vector prim, Vector second) throws Exception {
         if ((prim.startPoint.getCoordonateX() == prim.endPoint.getCoordonateX() &
                 prim.startPoint.getCoordonateY() == prim.endPoint.getCoordonateY()) ||
 
@@ -54,7 +54,7 @@ public class Vector {
                 this.endPoint.getCoordonateY() - this.startPoint.getCoordonateY());
     }
 
-    public static double DegreesTwoVectors(Vector prim, Vector second) {
+    public static double degreesTwoVectors(Vector prim, Vector second) {
         Point proiectionPrim = prim.returnProiection();
         Point proiectionSecond = second.returnProiection();
         return Math.toDegrees(Math.acos(((proiectionPrim.getCoordonateX() * proiectionSecond.getCoordonateX()) +
@@ -63,7 +63,7 @@ public class Vector {
     }
 
 
-    public double OneVectorDegrees() {
+    public double oneVectorDegrees() {
 
         Vector rootZero = new Vector(new Point(0, 0),
                 new Point(this.endPoint.getCoordonateX() - this.startPoint.getCoordonateX(),

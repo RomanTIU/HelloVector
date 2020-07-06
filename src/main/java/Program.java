@@ -30,21 +30,21 @@ public class Program {
         Vector vector4 = new Vector(point, point5);
 
         //Vector result of sum 2 vectors
-        Vector vector3 = Vector.SumVector(vector,vector1);
+        Vector vector3 = Vector.sumVector(vector,vector1);
         LOGGER.info("Length vector is : "+ new DecimalFormat("#.#").format(vector3.lengthVector()));
 
         //Degree of two vectors
-        Double degrees = Vector.DegreesTwoVectors(vector1,vector);
+        Double degrees = Vector.degreesTwoVectors(vector1,vector);
         LOGGER.info("Degrees two vectors : "+ new DecimalFormat("#.##").format(degrees));
 
         //Vector to OX degrees
         Vector oXVector = new Vector(new Point(0,0),new Point(-3,-6));
-        LOGGER.info("Degrees one vector : "+ new DecimalFormat("#.##").format(oXVector.OneVectorDegrees()));
+        LOGGER.info("Degrees one vector : "+ new DecimalFormat("#.##").format(oXVector.oneVectorDegrees()));
 
 
 
         //Vector result of diff 2 vectors
-        Vector vector2 = Vector.DiffVector(vector,vector1);
+        Vector vector2 = Vector.diffVector(vector,vector1);
         LOGGER.info(vector2);
 
 
